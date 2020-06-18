@@ -1752,20 +1752,18 @@ let keepConfirm = document.querySelector("#keepConfirm");
 let keepConfirmReset = document.querySelector("#keepConfirmReset");
 let cardsDiscarded = [];
 
-// function transitionSection(element) {
-//   if (!element) return;
-//   element.parentElement.classList.toggle("goingUp");
-//   setTimeout(() => {
-//     element.parentElement.nextElementSibling.classList.toggle("goingUp");
-//   }, 300);
-// }
+function transitionSection(element) {
+  if (!element) return;
+  element.parentElement.classList.remove("show");
+  element.parentElement.nextElementSibling.classList.add("show");
+}
 
-buttonPlay.addEventListener("click", () => showKeepCheck(buttonPlay));
-keepCheck.addEventListener("click", () => showKeepConfirm(keepCheck));
-keepConfirm.addEventListener("click", () => keepHand(keepConfirm));
-keepConfirmReset.addEventListener("click", () => resetKeep(keepConfirmReset));
+buttonPlay.addEventListener("click", () => showKeepCheck());
+keepCheck.addEventListener("click", () => showKeepConfirm());
+keepConfirm.addEventListener("click", () => keepHand());
+keepConfirmReset.addEventListener("click", () => resetKeep());
 
-function showKeepCheck(item) {
+function showKeepCheck() {
   transitionSection(buttonPlay);
   let container = "";
   playerHand.cards.map((item) => {
@@ -1799,7 +1797,8 @@ function showKeepCheck(item) {
   );
 }
 
-function showKeepConfirm(item) {
+function showKeepConfirm() {
+  cardsDiscarded = [];
   let containerElement = Array.from(
     document.querySelectorAll(".mulligan .cards .container")
   );
@@ -1820,7 +1819,7 @@ function showKeepConfirm(item) {
     .map((item) => (cardsToKeep.innerHTML += item.create()));
 }
 
-function keepHand(item) {
+function keepHand() {
   playerHand.keepHand(cardsDiscarded);
 
   console.log(playerHand);
@@ -1830,9 +1829,12 @@ function keepHand(item) {
   showArena();
 }
 
-function resetKeep(item) {
+function resetKeep() {
   modalConfirm.classList.toggle("show");
-  app.classList.toggle("blur");
+
+  mulligan.classList.toggle("blur");
+
+  showKeepCheck();
 
   buttonPlay.click();
 }
