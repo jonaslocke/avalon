@@ -1824,7 +1824,7 @@ function keepHand() {
 
   console.log(playerHand);
 
-  barAnimated(15, 1500);
+  barAnimated(45, 1500);
 
   showArena();
 }

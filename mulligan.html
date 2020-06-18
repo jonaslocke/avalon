@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AVALON</title>
+    <link rel="stylesheet" href="css/styles.min.css" />
+  </head>
+  <body class="game">
+    <div class="wrapper">
+      <section class="start show">
+        <button class="button" id="play">jogar!</button>
+      </section>
+      <section class="mulligan">
+        <h1 class="sectionTitle">
+          Escolha <span>DUAS</span> cartas pra descartar
+        </h1>
+        <div class="cards"></div>
+        <button class="button keep" id="keepCheck">MANTER!</button>
+      </section>
+      <section class="arena">ARENA!</section>
+    </div>
+
+    <div class="modalConfirm">
+      <h1 class="sectionTitle" id="keepConfirmReset">
+        Deseja <span>manter</span> essa mão?
+      </h1>
+      <div class="cards cardsToKeep"></div>
+      <button class="button" id="keepConfirm">confirmar</button>
+    </div>
+
+    <div class="animationLayer"></div>
+    <div class="animationLayer2"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
