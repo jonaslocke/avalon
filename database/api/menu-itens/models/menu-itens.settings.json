@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_itens",
+  "info": {
+    "name": "Menu Itens"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

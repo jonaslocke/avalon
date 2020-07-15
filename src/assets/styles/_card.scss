@@ -1,0 +1,79 @@
+.card {
+  --ratio: 3px;
+  width: calc(var(--ratio) * 65);
+  height: calc(var(--ratio) * 90);
+  text-align: center;
+  background-size: cover;
+  padding-top: calc(6.25 * var(--ratio));
+  position: relative;
+  border-radius: calc(7.5 * var(--ratio));
+  .title {
+    margin-left: calc(6.25 * var(--ratio));
+    text-transform: uppercase;
+    font-size: calc(3.25 * var(--ratio));
+    font-weight: bolder;
+    width: calc(52.5 * var(--ratio));
+    color: white;
+    height: calc(9.25 * var(--ratio));
+    line-height: calc(9.25 * var(--ratio));
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+  .spacer {
+    width: calc(52.5 * var(--ratio));
+    height: calc(34 * var(--ratio));
+    margin-left: calc(6.25 * var(--ratio));
+  }
+  .cardData {
+    @extend .flex-center;
+    justify-content: space-between;
+    margin-top: calc(1.75 * var(--ratio));
+    margin-left: calc(1.5 * var(--ratio));
+
+    .attributes {
+      color: white;
+      img {
+        height: calc(6.25 * var(--ratio));
+      }
+      div {
+        @extend .flex-center;
+        justify-content: space-between;
+        height: calc(6.25 * var(--ratio));
+        width: calc(14.75 * var(--ratio));
+        padding-left: calc(2 * var(--ratio));
+        & + div {
+          margin-top: calc(5 * var(--ratio));
+        }
+      }
+      span {
+        display: block;
+        font-size: calc(3.5 * var(--ratio));
+        width: calc(4.25 * var(--ratio));
+      }
+    }
+    .feature {
+      align-self: flex-end;
+      margin-right: calc(4.25 * var(--ratio));
+      div {
+        height: calc(6.25 * var(--ratio));
+        & + div {
+          margin-top: calc(5 * var(--ratio));
+        }
+      }
+      img {
+        height: calc(6.25 * var(--ratio));
+      }
+    }
+  }
+  .rarity {
+    position: absolute;
+    left: 50%;
+    bottom: calc(2.25 * var(--ratio));
+    transform: translateX(-50%);
+    img {
+      height: calc(6.25 * var(--ratio));
+    }
+  }
+  & + .card {
+    margin-left: calc(3.75 * var(--ratio));
+  }
+}

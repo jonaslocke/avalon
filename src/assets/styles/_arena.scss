@@ -1,0 +1,26 @@
+.arena {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: $color4;
+  .nav {
+    background-color: $color1;
+    &:hover {
+      background-color: $color4;
+    }
+  }
+  &__wrapper {
+    --navHeight: 58px;
+    width: 100vw;
+    height: calc(100vh - var(--navHeight));
+    margin-top: var(--navHeight);
+    background-color: $color4;
+    background: url("../imgs/arena-landscape/fireLandscape1400.png") no-repeat center center fixed;
+    background-size: cover;
+
+    transition: 0.3s ease-in;
+    opacity: 0;
+    transform: scale(10);
+    animation: explode 0.3s forwards;
+    animation-delay: 0.5s;
+  }
+}

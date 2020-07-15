@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+$color1: #00edaa;
+$color2: #21cdab;
+$color3: #ccff00;
+$color4: #ff2ea2;
+$color5: #309bff;
+
+:root {
+  --cardWidth: 65px;
+  --cardHeight: 90px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absoluteCenter {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pattern-diagonal-stripes-sm {
+  --size: 6px;
+  background: repeating-linear-gradient(
+    45deg,
+    $color1,
+    $color1 var(--size),
+    $color2 var(--size),
+    $color2 calc(2 * var(--size))
+  );
+  transition: 0.3s ease-in;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  background-color: $color1;
+  @extend .flex-center;
+  font-size: 16px;
+  @extend .pattern-diagonal-stripes-sm;
+  transition: 0.3s ease-in;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.wrapper {
+  transition: 0.3s ease-in;
+  transform: translateY(100%);
+  animation: wrapperAppear 0.5s forwards;
+  section {
+    height: 100vh;
+    display: none;
+    transition: 0.2s ease-in;
+    &.show {
+      @extend .flex-center;
+      flex-direction: column;
+    }
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 10%;
+  @extend .flex-center;
+  justify-content: space-between;
+  z-index: 1;
+  transition: 0.2s ease-in;
+  transform: translateY(-100vh);
+  animation: animatedNav 0.5s forwards;
+  animation-delay: 0.7s;
+  .logo {
+    background-color: $color4;
+    // mask: url("../imgs/avalonLogo.svg") no-repeat center / contain;
+    width: 145px;
+    height: 24px;
+    transition: 0.2s ease-in;
+  }
+  &:hover {
+    background-color: $color4;
+    .hamburger-avalon {
+      .hamburger-inner {
+        background-color: white;
+        &::before {
+          background-color: white;
+        }
+        &::after {
+          background-color: white;
+        }
+      }
+    }
+    .logo {
+      background-color: white;
+    }
+  }
+}
+
+@import "animations";
+@import "card";
+@import "sections";
+@import "splash";
+@import "arena";
+@import "./hamburgers.css";

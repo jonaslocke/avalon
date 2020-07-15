@@ -1,0 +1,202 @@
+.mulligan {
+  transition: 0.3s ease-in;
+  @extend .flex-center;
+  .cards {
+    @extend .flex-center;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    opacity: 0;
+    transform: scale(10);
+    animation: explode 0.2s forwards;
+    .container {
+      transition: 0.2s ease-in;
+      position: relative;
+      & + .container {
+        margin-left: 30px;
+      }
+      &:hover {
+        transform: scale(1.1);
+        &::after {
+          content: "DESCARTAR";
+          background-color: rgba($color: $color4, $alpha: 0.5) !important;
+          @extend .selectedCardStamp;
+        }
+      }
+      &.selected {
+        transform: scale(0.9);
+        opacity: 0.9;
+        &:hover {
+          transform: scale(0.95);
+          &::after {
+            content: "MANTER";
+            background-color: rgba($color: $color3, $alpha: 0.5);
+            @extend .selectedCardStamp;
+          }
+        }
+        &::after {
+          @extend .selectedCardStamp;
+          content: "DESCARTAR";
+          background-color: rgba($color: $color3, $alpha: 0.5);
+        }
+        .card {
+          filter: grayscale(100%);
+        }
+      }
+      &.shake {
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+        &:hover {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    & + .keep {
+      margin-top: 50px;
+    }
+  }
+  .keep {
+    opacity: 0;
+    pointer-events: none;
+    &.ready {
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+  &.show {
+    display: block;
+  }
+  .wrapper {
+    transition: 0.3s ease-in;
+    transform: translateY(100%);
+    animation: wrapperAppear 0.5s forwards;
+    section {
+      height: 100vh;
+      display: none;
+      transition: 0.2s ease-in;
+      &.show {
+        @extend .flex-center;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.cardsToKeep {
+  opacity: 0;
+  transform: scale(10);
+  transition: 0.2s ease-in;
+  animation: explode 0.2s forwards;
+}
+
+.modalConfirm {
+  position: fixed;
+  background-color: rgba($color: $color3, $alpha: 0.9);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  @extend .flex-center;
+  opacity: 0;
+  flex-direction: column;
+  pointer-events: none;
+  z-index: 2;
+  h1 {
+    position: relative;
+    padding-right: 60px;
+    &::after {
+      content: "X";
+      font-size: 16px;
+      color: white;
+      background-color: $color1;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.1s ease-in;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+
+      right: 0;
+      transform: translateY(-50%);
+      display: none;
+    }
+    &:hover {
+      &::after {
+        filter: brightness(0.95);
+        display: block;
+      }
+    }
+    & + .cards {
+      margin-top: 100px;
+    }
+  }
+  .cards {
+    @extend .flex-center;
+    .card {
+      transition: 0.2s ease-in;
+      transform: translateY(-100vh);
+      &:nth-of-type(odd) {
+        animation: appearFromBottom 0.5s forwards;
+        animation-delay: 1.8s;
+      }
+      &:nth-of-type(even) {
+        animation: appearFromTop 0.5s forwards;
+        animation-delay: 1.8s;
+      }
+    }
+    & + .button {
+      margin-top: 100px;
+    }
+  }
+  &.show {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+.button {
+  border: none;
+  background-color: $color5;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 20px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transition: 0.3s ease-in;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.sectionTitle {
+  text-align: center;
+  span {
+    text-transform: uppercase;
+    color: $color4;
+    font-weight: bolder;
+    font-size: 1.2em;
+  }
+  & + .cards {
+    margin-top: 50px;
+  }
+}
+
+.selectedCardStamp {
+  font-weight: bold;
+  position: absolute;
+  display: block;
+  @extend .absoluteCenter;
+  color: white;
+  padding: 15px;
+  transition: 0.5s ease-in;
+}
