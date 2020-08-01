@@ -1,12 +1,21 @@
 ## Project Avalon
 
-- [ ] Create database | Strapi
+- [x] Create database | Strapi
 
 * Create tables
-    - [ ] 'Names'
-    - [ ] 'Surnames'
-    - [ ] 'Users'
+    - [x] 'Names'
+    - [x] 'Surnames'
+    - [x] 'Users'
     - [ ] 'Matches' | relationship with User 1 - 1
+    - * collumns
+        1. id
+        2. player
+        3. handPlayer
+        4. handAi
+        5. turns
+        6. playerLife
+        7. aiLife
+        8. result
     - [ ] 'Logs' | relationship with Matches 1 - 1
 
 * Create routes
@@ -16,7 +25,7 @@
     - [ ] Login
     - [ ] Tutorial
 
-* Create Arena/Match Fluxgit
+* Create Arena/Match Flux
     - [ ] ...N
 
 * Create Login flux
