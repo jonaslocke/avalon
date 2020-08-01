@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
-// import "./App.css";
+
 import "./assets/styles/app.scss";
-import MainLogo from "./components/MainLogo";
-import SideMenu from "./components/SideMenu";
+
 import axios from "axios";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Home from "./components/Home";
 import Loading from "./components/Loading";
+import Arena from "./components/Arena";
+import Contact from "./components/Contact";
+import AddCardName from "./components/AddCardName";
 
 const App = () => {
   const [nextSection, setNextSection] = useState(false);
@@ -23,14 +28,12 @@ const App = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className={`splash ${nextSection ? "hide" : null}`}>
-      <SideMenu
-        nextSection={nextSection}
-        setNextSection={setNextSection}
-        menuItens={menuItens}
-      />
-      <MainLogo />
-    </div>
+    // <Router>
+    //   <Route exact path="/" render={(props) => <Home {...props} nextSection={nextSection} setNextSection={setNextSection} />} />
+    //   <Route path="/arena" component={Arena} />
+    //   <Route path="/contact" component={Contact} />
+    // </Router>
+    <AddCardName />
   );
 };
 

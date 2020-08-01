@@ -1,16 +1,17 @@
 {
   "kind": "collectionType",
-  "collectionName": "card_names",
+  "collectionName": "surnames",
   "info": {
-    "name": "Card Names"
+    "name": "surnames"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "name": {
-      "type": "string"
+    "surname": {
+      "type": "string",
+      "required": true
     }
   }
 }

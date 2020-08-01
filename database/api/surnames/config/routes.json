@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/card-names",
-      "handler": "card-names.find",
+      "path": "/surnames",
+      "handler": "surnames.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/card-names/count",
-      "handler": "card-names.count",
+      "path": "/surnames/count",
+      "handler": "surnames.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/card-names/:id",
-      "handler": "card-names.findOne",
+      "path": "/surnames/:id",
+      "handler": "surnames.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/card-names",
-      "handler": "card-names.create",
+      "path": "/surnames",
+      "handler": "surnames.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/card-names/:id",
-      "handler": "card-names.update",
+      "path": "/surnames/:id",
+      "handler": "surnames.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/card-names/:id",
-      "handler": "card-names.delete",
+      "path": "/surnames/:id",
+      "handler": "surnames.delete",
       "config": {
         "policies": []
       }
