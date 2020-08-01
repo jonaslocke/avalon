@@ -1,6 +1,5 @@
 ## Project Avalon
 
-<<<<<<< HEAD
 [] Create database | Strapi
 
 * Create tables
@@ -17,7 +16,7 @@
     [] Login
     [] Tutorial
 
-* Create Arena/Match Flux
+* Create Arena/Match Fluxgit
     [] ...N
 
 * Create Login flux
@@ -30,12 +29,9 @@
 
 * Tutorial
     [] ...N
-=======
-[ ] Create database | Strapi
- * Create tables
- [ ] 'Names'
- [ ] 'Surnames'
- [ ] 'Users'
- [ ] 'Matches' | relationship with User 1 - 1
- [ ] 'Logs' | relationship with Matches 1 - 1
->>>>>>> 4aec7485808ec3d106efb9af44d69216b4a31632
+
+
+
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
