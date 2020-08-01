@@ -17,7 +17,7 @@
         8. result -> string || list: win, tie, lose
         9. firstStrike -> string || list: player, ai
 
-    - [ ] 'Logs' -> relationship with Matches 1 - 1
+    - [x] 'Logs' -> relationship with Matches 1 - 1
         1. id -> self generated
         2. matchId -> int || relationship with **Matches**
         3. turns -> JSON
@@ -25,11 +25,13 @@
         5. endedAt -> date/time
 
 * Create routes
-    - [ ] Index
-    - [ ] Arena
-    - [ ] Match Logs
-    - [ ] Login
-    - [ ] Tutorial
+    - [x] Index
+    - [x] Arena
+    - [x] Match Logs
+    - [x] Login
+    - [x] Tutorial
+    - [x] Contact
+    - [ ] 404
 
 * Create Arena/Match Flux
     - [ ] ...N

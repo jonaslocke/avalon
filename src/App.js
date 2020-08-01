@@ -10,6 +10,9 @@ import Loading from "./components/Loading";
 import Arena from "./components/Arena";
 import Contact from "./components/Contact";
 import AddCardName from "./components/AddCardName";
+import MatchLogs from "./components/MatchLogs";
+import Login from "./components/Login";
+import Tutorial from "./components/Tutorial.js";
 
 const App = () => {
   const [nextSection, setNextSection] = useState(false);
@@ -28,12 +31,15 @@ const App = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    // <Router>
-    //   <Route exact path="/" render={(props) => <Home {...props} nextSection={nextSection} setNextSection={setNextSection} />} />
-    //   <Route path="/arena" component={Arena} />
-    //   <Route path="/contact" component={Contact} />
-    // </Router>
-    <AddCardName />
+    <Router>
+      <Route exact path="/" render={(props) => <Home {...props} nextSection={nextSection} setNextSection={setNextSection} />} />
+      <Route path="/arena" component={Arena} />
+      <Route path="/match-logs" component={MatchLogs} />
+      <Route path="/login" component={Login} />
+      <Route path="/tutorial" component={Tutorial} />
+      <Route path="/contact" component={Contact} />
+    </Router>
+    
   );
 };
 
