@@ -16,6 +16,7 @@
         7. aiLife -> integer
         8. result -> string || list: win, tie, lose
         9. firstStrike -> string || list: player, ai
+
 ```
 {
     "userid": 1,
@@ -30,12 +31,20 @@
 }        
 ```
 
+
+
+
+
     - [ ] 'Logs' -> relationship with Matches 1 - 1
         1. id -> self generated
         2. matchId -> int || relationship with **Matches**
         3. turns -> JSON
         4. startedAt -> date/time
         5. endedAt -> date/time
+
+
+
+
 
 ```
 {
