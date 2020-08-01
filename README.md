@@ -35,7 +35,8 @@
 
 * Create Components
     - [x] Index
-    - [x] Arena
+    - [ ] Navbar
+    - [ ] Arena
     - [ ] Login
     - [x] Contact
     - [ ] 404
