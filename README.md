@@ -6,10 +6,10 @@
     - [x] 'Names'
     - [x] 'Surnames'
     - [x] 'Users'
-    - [ ] 'Matches' | relationship with Users 1 - 1
+    - [x] 'Matches' | relationship with Users 1 - 1
     * collumns
         1. id -> self generated
-        2. player -> string || relationship with **Users**
+        2. player -> string || relationship with **Users** by **userid**
         3. handPlayer -> json
         4. handAi -> json
         5. turns -> integer

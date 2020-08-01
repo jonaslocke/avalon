@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matches",
+  "info": {
+    "name": "Matches"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "handPlayer": {
+      "type": "json",
+      "required": true
+    },
+    "handAi": {
+      "type": "json",
+      "required": true
+    },
+    "turns": {
+      "type": "integer",
+      "required": true
+    },
+    "playerLife": {
+      "type": "integer",
+      "required": true,
+      "default": 25
+    },
+    "aiLife": {
+      "type": "integer",
+      "default": 25,
+      "required": true
+    },
+    "result": {
+      "type": "enumeration",
+      "enum": [
+        "win",
+        "tie",
+        "lose"
+      ],
+      "required": true
+    },
+    "userid": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
