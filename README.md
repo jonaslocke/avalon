@@ -7,7 +7,7 @@
     - [x] 'Surnames'
     - [x] 'Users'
     - [ ] 'Matches' | relationship with User 1 - 1
-    *collumns*
+    * collumns
         1. id
         2. player
         3. handPlayer
