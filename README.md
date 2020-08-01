@@ -8,14 +8,14 @@
     - [x] 'Users'
     - [ ] 'Matches' | relationship with User 1 - 1
     * collumns
-        1. id
-        2. player
-        3. handPlayer
-        4. handAi
-        5. turns
-        6. playerLife
-        7. aiLife
-        8. result
+        1. id | self generated
+        2. player | string
+        3. handPlayer | json
+        4. handAi | json
+        5. turns | integer
+        6. playerLife | integer
+        7. aiLife | integer
+        8. result | string
     - [ ] 'Logs' | relationship with Matches 1 - 1
 
 * Create routes
