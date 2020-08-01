@@ -36,11 +36,11 @@
 * Create Components
     - [x] Index
     - [x] Arena
-    - [ ] Match Logs
     - [ ] Login
-    - [ ] Tutorial
-    - [ ] Contact
+    - [x] Contact
     - [ ] 404
+    - [ ] Match Logs
+    - [ ] Tutorial
 
 * Create Arena/Match Flux
     - [ ] ...N
