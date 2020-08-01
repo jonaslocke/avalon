@@ -1,5 +1,6 @@
 ## Project Avalon
 
+<<<<<<< HEAD
 [] Create database | Strapi
 
 * Create tables
@@ -29,3 +30,12 @@
 
 * Tutorial
     [] ...N
+=======
+[ ] Create database | Strapi
+ * Create tables
+ [ ] 'Names'
+ [ ] 'Surnames'
+ [ ] 'Users'
+ [ ] 'Matches' | relationship with User 1 - 1
+ [ ] 'Logs' | relationship with Matches 1 - 1
+>>>>>>> 4aec7485808ec3d106efb9af44d69216b4a31632
