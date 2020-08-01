@@ -13,6 +13,7 @@ import AddCardName from "./components/AddCardName";
 import MatchLogs from "./components/MatchLogs";
 import Login from "./components/Login";
 import Tutorial from "./components/Tutorial.js";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   const [nextSection, setNextSection] = useState(false);
@@ -32,12 +33,17 @@ const App = () => {
     <Loading />
   ) : (
     <Router>
-      <Route exact path="/" render={(props) => <Home {...props} nextSection={nextSection} setNextSection={setNextSection} />} />
-      <Route path="/arena" component={Arena} />
-      <Route path="/match-logs" component={MatchLogs} />
-      <Route path="/login" component={Login} />
-      <Route path="/tutorial" component={Tutorial} />
-      <Route path="/contact" component={Contact} />
+      <Switch>
+        <Route exact path="/" render={(props) => <Home {...props} nextSection={nextSection} setNextSection={setNextSection} />} />
+        <Route exact path="/arena" component={Arena} />
+        <Route exact path="/match-logs" component={MatchLogs} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/tutorial" component={Tutorial} />
+        <Route exact path="/contact" component={Contact} />
+        {/* SOURCE: https://ui.dev/react-router-v4-handling-404-pages/ */}
+        <Route component={NotFound} />
+      </Switch>
+
     </Router>
     
   );

@@ -31,6 +31,15 @@
     - [x] Login
     - [x] Tutorial
     - [x] Contact
+    - [x] 404
+
+* Create Components
+    - [x] Index
+    - [x] Arena
+    - [ ] Match Logs
+    - [ ] Login
+    - [ ] Tutorial
+    - [ ] Contact
     - [ ] 404
 
 * Create Arena/Match Flux
