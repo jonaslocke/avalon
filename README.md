@@ -17,7 +17,37 @@
         8. result -> string || list: win, tie, lose
         9. firstStrike -> string || list: player, ai
 
+    - [ ] 'Logs' -> relationship with Matches 1 - 1
+        1. id -> self generated
+        2. matchId -> int || relationship with **Matches**
+        3. turns -> JSON
+        4. startedAt -> date/time
+        5. endedAt -> date/time
 
+* Create routes
+    - [ ] Index
+    - [ ] Arena
+    - [ ] Match Logs
+    - [ ] Login
+    - [ ] Tutorial
+
+* Create Arena/Match Flux
+    - [ ] ...N
+
+* Create Login flux
+    - [ ] Create account
+    - [ ] Login
+    - [ ] Reset password
+
+* Match Logs
+    - [ ] ...N
+
+* Tutorial
+    - [ ] ...N
+
+
+
+*EXEMPLO POST MATCHES    
 > {\
 >     "userid": 1,\
 >     "handPlayer": {\
@@ -28,16 +58,10 @@
 >     },\
 >     "turns": 4,\
 >     "result": "tie"\
-> }        
-
-    - [ ] 'Logs' -> relationship with Matches 1 - 1
-        1. id -> self generated
-        2. matchId -> int || relationship with **Matches**
-        3. turns -> JSON
-        4. startedAt -> date/time
-        5. endedAt -> date/time
+> }    
 
 
+*EXEMPLO POST LOGS    
 > {\
 >     "matchId": 1,\
 >     "turns": {\
@@ -65,24 +89,3 @@
 >     "startedAt": "2020-08-01T02:13:55.195Z",\
 >     "endedAt": "2020-08-01T02:13:55.195Z"\
 > }
-
-* Create routes
-    - [ ] Index
-    - [ ] Arena
-    - [ ] Match Logs
-    - [ ] Login
-    - [ ] Tutorial
-
-* Create Arena/Match Flux
-    - [ ] ...N
-
-* Create Login flux
-    - [ ] Create account
-    - [ ] Login
-    - [ ] Reset password
-
-* Match Logs
-    - [ ] ...N
-
-* Tutorial
-    - [ ] ...N
