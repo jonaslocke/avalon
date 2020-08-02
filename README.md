@@ -35,7 +35,7 @@
 
 * Create Components
     - [x] Index
-    - [ ] Navbar
+    - [x] Navbar
     - [x] Avalon Logo
     - [ ] Arena
     - [ ] Login
