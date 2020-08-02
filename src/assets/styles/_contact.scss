@@ -1,17 +1,33 @@
 .contact {
   width: 100vw;
-  height: 90vh;
-  margin-top: 10vh;
-  background-color: rgba($color: $color1, $alpha: 0.9);
+  height: calc(100vh - 60px);
+  margin-top: 60px;
   h1 {
-      font-size: 2rem;
-      text-align: center;
-      padding-top: 20px;
-      color: $color4;
-      font-weight: bolder;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 20px;
+    color: $color4;
+    font-weight: bolder;
+  }
+  
+  .map {
+    background-image: url("../imgs/contact.jpg");
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+    margin-right: unset;
+    .contact-info {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 80px);
+    }
   }
   .feedback {
-    background-color: transparent;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
     [class*="text-gray"] {
       color: $color4;
     }
@@ -32,15 +48,5 @@
       }
     }
   }
-  .map {
-    background-image: url("../imgs/contact.jpg");
-    .contact-info {
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 80px);
-    }
-  }
-  
+
 }

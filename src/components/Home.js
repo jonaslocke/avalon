@@ -1,6 +1,6 @@
 import React from "react";
 import SideMenu from "./SideMenu";
-import MainLogo from "./MainLogo";
+import AvalonLogo from "./AvalonLogo";
 
 const Home = ({ nextSection, setNextSection, menuItens }) => {
   return (
@@ -11,7 +11,7 @@ const Home = ({ nextSection, setNextSection, menuItens }) => {
           setNextSection={setNextSection}
           menuItens={menuItens}
         />
-        <MainLogo />
+        <AvalonLogo ratio={0.5}/>
       </div>
     </>
   );
