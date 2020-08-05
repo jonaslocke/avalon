@@ -1,3 +1,10 @@
+//TO-DO
+//
+// HAND -----
+// - Change keep hand method to accept cardID;
+// - Refactory aiKeepHand Method
+//
+
 let names = [
   "Emma",
   "Olivia",
@@ -1395,30 +1402,6 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function getRandomattributes(rarity) {
-  if (!rarity) return;
-
-  let pointsToDistribute;
-
-  if (rarity == "r") pointsToDistribute = 25;
-  if (rarity == "u") pointsToDistribute = 22;
-  if (rarity == "c") pointsToDistribute = 19;
-
-  let first = getRandomNumber(1, 10);
-  while (first > 10 || first < 5) {
-    first = getRandomNumber(1, 10);
-  }
-  pointsToDistribute -= first;
-  let second = getRandomNumber(1, 10);
-  let third = pointsToDistribute - second;
-  while (second > 10 || second < 5 || third > 10 || third < 5) {
-    second = getRandomNumber(1, 10);
-    third = pointsToDistribute - second;
-  }
-
-  return { strength: first, speed: second, magic: third };
-}
-
 function addCard(rarity) {
   if (!rarity) return;
 
@@ -1514,7 +1497,7 @@ function getMultipleCards(rarity, times) {
 
 //CARD
 class Card {
-  constructor(rarity, id, strength, speed, magic, element, name) {
+  constructor(rarity, strength, speed, magic, element, name) {
     this.name = !!name ? name : this.getName();
     this.rarity = rarities.find((item) => item.abrv === rarity);
     if (!strength || !speed || !magic) {
@@ -1532,7 +1515,7 @@ class Card {
     this.speciality = this.getSpeciality();
     this.avatarImage = `imgs/cards-face/avatar${getRandomNumber(1, 12)}.png`;
     this.grade = this.getGrade();
-    this.id = !id ? 0 : id;
+    this.id = this.getCardId();
   }
 
   getattributes() {
@@ -1657,21 +1640,28 @@ class Card {
     `;
     return cardMock;
   }
+  getCardId() {
+    let percentageOfUppercase = 0.6;
+    let idSize = 8;
+    let id = Math.random().toString(36).substr(2, idSize);
+    let result = "";
+
+    for (let i = 0; i < id.length; i++) {
+      Math.random() > percentageOfUppercase
+        ? (result += id[i].toUpperCase())
+        : (result += id[i]);
+    }
+
+    return result;
+  }
 
   getGrade() {
-    function gradeValues(attr) {
-      if (attr == 10) return 32;
-      if (attr == 9) return 16;
-      if (attr == 8) return 8;
-      if (attr == 7) return 4;
-      if (attr == 6) return 2;
-      if (attr == 5) return 1;
-    }
-    let result = 0;
-    for (let prop in this.attributes()) {
-      result += gradeValues(this.attributes()[prop]);
-    }
-    return result;
+    return (
+      Object.values(this.attributes()).reduce(
+        (init, att) => init + Math.pow(att, 2),
+        0
+      ) / 100
+    );
   }
 }
 
@@ -1699,6 +1689,17 @@ class Hand {
 
     return this.cards;
   }
+
+  keepHand2(array) {
+    return this.cards;
+  }
+
+  findCard(id) {
+    console.log(id);
+
+    return this.cards.find((item) => item.id == id);
+  }
+
   aiKeepHand() {
     let cardsDiscarded = [];
     let toDiscard = [];
@@ -1706,13 +1707,19 @@ class Hand {
       return a.grade > b.grade ? -1 : b.grade > a.grade ? 1 : 0;
     });
 
-    cardsDiscarded.push(copyCards.pop().id);
-    cardsDiscarded.push(copyCards.pop().id);
+    console.log(copyCards);
+    cardsDiscarded.push(copyCards.pop());
+    console.log(copyCards, cardsDiscarded);
+    cardsDiscarded.push(copyCards.pop());
+    console.log(copyCards, cardsDiscarded);
 
-    playerHand.cards.map((item, index) =>
-      cardsDiscarded.includes(item.id) ? toDiscard.push(index) : false
-    );
-    this.keepHand(toDiscard);
+    // cardsDiscarded.push(copyCards.pop().id);
+    // cardsDiscarded.push(copyCards.pop().id);
+
+    // this.cards.map((item, index) =>
+    //   cardsDiscarded.includes(item.id) ? toDiscard.push(index) : false
+    // );
+    // this.keepHand(toDiscard);
   }
 }
 
@@ -1750,6 +1757,7 @@ let cards = document.querySelector(".mulligan .cards");
 let keepCheck = document.querySelector("#keepCheck");
 let keepConfirm = document.querySelector("#keepConfirm");
 let keepConfirmReset = document.querySelector("#keepConfirmReset");
+let arenaLink = document.querySelector("#arenaLink");
 let cardsDiscarded = [];
 
 function transitionSection(element) {
@@ -1824,8 +1832,6 @@ function keepHand() {
 
   console.log(playerHand);
 
-  barAnimated(45, 1500);
-
   showArena();
 }
 
@@ -1840,6 +1846,10 @@ function resetKeep() {
 }
 
 function showArena() {
+  barAnimated(45, 1500);
+  setTimeout(() => {
+    arenaLink.click();
+  }, 1);
   console.log("ARENA!");
 }
 
@@ -1886,7 +1896,6 @@ function barAnimated(width, time) {
     }
     if (counter == barCounter) {
       animationLayer.classList.add("show2");
-      animationLayer.innerHTML = "ARENA!";
     }
   }
 

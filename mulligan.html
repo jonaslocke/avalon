@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AVALON</title>
     <link rel="stylesheet" href="css/styles.min.css" />
+    <link rel="stylesheet" href="css/hamburgers.css" />
   </head>
   <body class="game">
+    <div class="nav">
+      <div class="hamburger hamburger--elastic js-hamburger hamburger-avalon">
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
+      </div>
+      <a href="index.html">
+        <div class="logo"></div>
+      </a>
+    </div>
     <div class="wrapper">
       <section class="start show">
         <button class="button" id="play">jogar!</button>
@@ -31,6 +42,8 @@
 
     <div class="animationLayer"></div>
     <div class="animationLayer2"></div>
+    <a href="arena.html" id="arenaLink"></a>
     <script src="app.js"></script>
+    <script src="probabiltyTests.js"></script>
   </body>
 </html>
